@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: Build node-app
+      docker_image: 
+        name: nodeapp
+        source: build 
+        build: 
+          path: /home/repo/
+

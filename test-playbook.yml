@@ -1,0 +1,17 @@
+---
+- hosts: all
+  gather_facts: yes
+
+  tasks:
+    - name: Responce codes
+      uri:  
+        url: "http://{{  ansible_host }}"
+        #url: http://{{  public_ip  }} 
+        method: GET
+        status_code: 200
+      register: result
+      
+    
+    - debug: 
+        #var: result
+        msg: "The {{ result.url }} returned {{ result.status }} status code"
